@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface User {
     _id: string;
     name: string;
@@ -20,7 +22,7 @@ export interface Product {
     description: string;
     price: number;
     comparePrice?: number;
-    images: string[];
+    images: ImageSourcePropType[];
     sizes?: string[];
     category:
         | {
