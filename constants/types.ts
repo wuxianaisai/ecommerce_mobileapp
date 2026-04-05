@@ -51,7 +51,7 @@ export interface CartItem {
 }
 
 export type CartItemProps = {
-    item: { id: string; product: { name: string; price: number; images: string[] }; quantity: number; size: string };
+    item: CartItem;
     onRemove?: () => void;
     onUpdateQuantity?: (newQty: number) => void;
 };

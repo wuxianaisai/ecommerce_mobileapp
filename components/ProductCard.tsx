@@ -1,5 +1,6 @@
 import { COLORS } from "@/constants"
 import { ProductCardProps } from "@/constants/types"
+import { useWishlist } from "@/context/WishlistContext"
 import { Ionicons } from "@expo/vector-icons"
 import { Link } from "expo-router"
 import React from "react"
@@ -7,24 +8,27 @@ import { Image, TouchableOpacity, View, Text } from "react-native"
 
 export default function ProductCard({ product }: ProductCardProps) {
 
-    const isLiked = false
+    const {toggleWishlist, isInWishlist} = useWishlist()
+
+    const isLiked = isInWishlist(product._id)
 
     return (
         <Link href={`/product/${product._id}`} asChild>
             <TouchableOpacity className="w-[48%] mb-4 bg-white rounded-lg overflow-hidden">
                 <View className="relative h-56 w-full bg-gray-100">
-                    <Image source={product.images[0]}
-                        className="w-full h-full" resizeMode="cover" />
+                    <Image source={product.images?.[0] ?? ""}
+                        className="w-full h-full" resizeMode="cover"
+                    />
 
                     <TouchableOpacity className="absolute top-2 right-2 z-10 p-2 bg-white rounded-full shadow-sm"
-                        onPress={(e) => { e.stopPropagation(); }}>
+                        onPress={(e) => { e.stopPropagation(); toggleWishlist(product)}}>
                         <Ionicons name={isLiked ? "heart" : "heart-outline"}
                             size={20} color={isLiked ? COLORS.accent : COLORS.primary} />
                     </TouchableOpacity>
 
                     {product.isFeatured && (
                         <View className="absolute top-2 left-2 bg-black px-2 py-1 rounded">
-                            <Text className="text-white text-xs font-bold uppercase">Избранное</Text>
+                            <Text className="text-white text-xs font-bold uppercase">Рекомендуемое</Text>
                         </View>
                     )}
                 </View>

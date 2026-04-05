@@ -50,7 +50,7 @@ export default function Home() {
                             <View key={index} className="relative w-full h-48 bg-gray-200 overflow-hidden"
                                 style={{ width: width - 32 }}>
                                 <Image source={banner.image} className="w-full h-full" resizeMode="cover" />
-
+                                <View className="absolute inset-0 bg-black/40" />
                                 <View className="absolute bottom-4 left-4 z-10">
                                     <Text className="text-white text-2xl font-bold">{banner.title}</Text>
                                     <Text className="text-white text-sm font-medium">{banner.subtitle}</Text>
@@ -58,7 +58,7 @@ export default function Home() {
                                         <Text className="text-primary font-bold text-xs">За покупками</Text>
                                     </TouchableOpacity>
                                 </View>
-                                <View className="absolute inset-0 bg-black/40" />
+
                             </View>
                         ))}
                     </ScrollView>
@@ -94,20 +94,20 @@ export default function Home() {
                     </View>
                     {loading ? (
                         <ActivityIndicator size="large" />
-                    ):
-                    ( 
-                        <View className="flex-row flex-wrap justify-between">
-                            {products.slice(0,2).map((product) => (
-                                <ProductCard key={product._id} product={product} />
-                            ))}
-                        </View>
-                    )
-                }
+                    ) :
+                        (
+                            <View className="flex-row flex-wrap justify-between">
+                                {products.slice(0, 4).map((product) => (
+                                    <ProductCard key={product._id} product={product} />
+                                ))}
+                            </View>
+                        )
+                    }
                 </View>
 
                 <View className="bg-gray-100 p-6 rounded-2xl mb-20 items-center">
                     <Text className="text-2xl font-bold text-primary mb-2 text-center">Будь в курсе</Text>
-                    <Text className="text-secondary text-center mb-4">Новые коллекции и редкие находки — раньше всех.</Text>
+                    <Text className="text-secondary text-center mb-4">Узнавай о новых коллекциях и редких нахоках раньше всех.</Text>
                     <TouchableOpacity className="bg-primary w-4/5 py-3 rounded-full items-center">
                         <Text className="text-white font-medium text-base">Подписаться</Text>
                     </TouchableOpacity>
