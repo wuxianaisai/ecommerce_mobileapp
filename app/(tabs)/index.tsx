@@ -31,7 +31,7 @@ export default function Home() {
 
     return (
         <SafeAreaView className="flex-1" edges={["top"]}>
-            <Header title="SYNTHRA" showMenu showCart showLogo />
+            <Header title="NKSVN" showMenu showCart showLogo />
 
             <ScrollView className="flex-1 px-4"
                 showsVerticalScrollIndicator={false}>

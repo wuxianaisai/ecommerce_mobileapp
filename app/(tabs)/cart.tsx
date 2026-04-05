@@ -22,7 +22,7 @@ export default function Cart() {
 
     return (
         <SafeAreaView className="flex-1 bg-surface" edges={["top"]}>
-            <Header title="My Cart" showBack />
+            <Header title="Корзина" showBack />
             {cartItems.length > 0 ? (
                 <>
                     <ScrollView className="flex-1 px-4 mt-4"
@@ -59,7 +59,7 @@ export default function Cart() {
                         </View>
 
                         <TouchableOpacity className="bg-primary py-4 rounded-full items-center" onPress={() => router.push("/checkout")}>
-                            <Text className="text-white font-bold text-base">Заказать</Text>
+                            <Text className="text-white font-bold text-base">К оформлению</Text>
                         </TouchableOpacity>
                     </View>
                 </>

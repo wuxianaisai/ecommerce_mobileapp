@@ -1052,7 +1052,7 @@ export const dummyUser = {
     email: "john@example.com",
     firstName: "John",
     lastName: "Doe",
-    imageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=240",
+    imageUrl: require('../assets/products-images/p_img3 10.png'),
     emailAddresses: [
         {
             emailAddress: "john@example.com",
